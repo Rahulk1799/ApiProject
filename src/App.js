@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import ApiData from "./components/ApiData";
+import Counter from "./components/Counter";
+import Navbar from "./components/Navbar";
+import PostData from "./components/PostData";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./components/Home";
+import EditData from "./components/EditData";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/showdata" element={<ApiData />} />
+          <Route path="/adddata" element={<PostData />} />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/edit" element={<EditData />} />
+        </Routes>
+        {/* <Counter />
+        <ApiData />
+        <PostData /> */}
+      </div>
+    </>
   );
 }
 
